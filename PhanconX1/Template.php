@@ -46,7 +46,7 @@ class Template
         include $dir.'/'.$basename.'/'.$template.'.php';
         $content = ob_get_clean();
 
-        include $dir."/layout.php";
+        include $dir."/layout/main.php";
 
 
     }
