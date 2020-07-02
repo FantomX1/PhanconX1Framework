@@ -54,6 +54,7 @@ class App
         //$route = App::$app->di->Router->getRoute();
         $controller = '\controllers\\'.$route[0]."Controller";
         $controller = new $controller();
+        $controller->di = $this->di;
 //        call_user_func(
 //            [$controller, "action".$route[1]]
 //        );
