@@ -16,13 +16,13 @@ class BaseController
      * @param $template
      * @param $params
      */
-    public function render($template, $params)
+    public function render($template, $params, $contents = null)
     {
 
 
         $renderer = new Template($this);
 
-        $renderer->render($template, $params);
+        $renderer->render($template, $params, $contents);
 
     }
 
