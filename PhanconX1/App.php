@@ -24,13 +24,21 @@ class App
     /**
      * App constructor.
      * @param $config
+     * @param ServiceContainerInterface|null $serviceContainer
      */
-    public function __construct($config)
+    public function __construct($config, ServiceContainerInterface $serviceContainer = null)
     {
+
+        $this->di = $serviceContainer;
+
         $config = $config + $this->defaultServices();
 
+        if ($serviceContainer) {
+            $this->di = $serviceContainer;
+        } else {
+            $this->di = new Di($config);
+        }
 
-        $this->di = new Di($config);
 
         static::$app = $this;
 
@@ -42,8 +50,8 @@ class App
      */
     public function run()
     {
-
-        $route = App::$app->di->Router->getRoute();
+        $route = App::$app->di->getS('router')->getRoute();
+        //$route = App::$app->di->Router->getRoute();
         $controller = '\controllers\\'.$route[0]."Controller";
         $controller = new $controller();
 //        call_user_func(

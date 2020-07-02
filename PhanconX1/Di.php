@@ -8,7 +8,7 @@ namespace fantomx1\PhanconX1;
  * Class Di
  * @package framework
  */
-class Di
+class Di implements ServiceContainerInterface
 {
 
     /**
@@ -33,6 +33,14 @@ class Di
         
     }
 
+    /**
+     * @param String $service
+     * @return mixed
+     */
+    public function getS(String $service)
+    {
+        return $this->$service;
+    }
 
     /**
      * @param $service
