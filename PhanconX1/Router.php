@@ -28,10 +28,7 @@ class Router
     public function getRoute()
     {
 
-        // a get params lepsie, a kady preprocessed, ci len params,
-        // a alebo aj konkretne a druh kontroleru si zisti
-        // ktore parametre si prevezme, ze rpc si kontrolelr nevezme ani z url
-        // resp aj z url ale akciu nie z url
+        // @TODO: different input parsing for RPC type of controllers, ws controller WIP
 
         $controller = "Site";
         $action = "index";
@@ -45,8 +42,7 @@ class Router
         }
 
 
-        // route rules a route generation
-        // a aj iny format a ci aj povoluje
+        // @TODO: route rules routing
         $this->controller = $controller;
         $this->action = $action;
 

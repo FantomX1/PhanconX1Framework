@@ -63,8 +63,6 @@ class Di implements ServiceContainerInterface
         }
         // @TODO: component object
 
-        // a prerusenai ale if nei anstavit a rvatit
-
 
         return $this->registry[$service];
     }
